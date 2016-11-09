@@ -7,19 +7,14 @@
 echo -n "Updating repositories... "
 apt-get update  &>/dev/null
 echo "(done)"
-##
+
 echo -n "Upgrading system... "
 apt-get upgrade --yes --force-yes -f  &>/dev/null
 echo "(done)"
 
 echo -n "Installing aditional packages... "
-
 apt-get --yes --force-yes install mc unzip htop  &>/dev/null
 echo "(done)"
-
-#echo -n "upgrading chef... "
-#dpkg -i /vagrant/.setup/vagrant/chef_11.14.2-1_amd64.deb & >/dev/null
-#echo "(done)"
 
 chmod +x /vagrant/.setup/vagrant/prepare-odoo-deb.sh
 /vagrant/.setup/vagrant/prepare-odoo-deb.sh
