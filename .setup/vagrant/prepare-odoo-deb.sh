@@ -25,8 +25,8 @@ echo "Odoo dependencies (done)"
 
 echo -n "installing odoo ... "
 cd /tmp/app/
+wget https://nightly.odoo.com/9.0/nightly/deb/odoo_9.0c.latest_all.deb
 dpkg -i ./odoo_9.0c.latest_all.deb &>/dev/null
-# dpkg -i ./odoo_8.0-latest.deb &>/dev/null
 apt-get -y -f install &>/dev/null
 dpkg -i ./odoo_9.0c.latest_all.deb &>/dev/null
 echo "(done)"
@@ -43,7 +43,7 @@ rm -f /etc/odoo/openerp-server.conf
 ln -s /vagrant/.openerp_serverrc /home/vagrant &>/dev/null
 ln -s /vagrant/.openerp_serverrc /etc/odoo/openerp-server.conf &>/dev/null
 sed -i -e 's/USER=odoo/USER=vagrant/g' /etc/init.d/odoo
-#update-rc.d odoo defaults  &>/dev/null
+update-rc.d odoo defaults  &>/dev/null
 echo "(done)"
 
 
